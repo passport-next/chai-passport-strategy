@@ -1,18 +1,18 @@
 # chai-passport-strategy
 
-[![Version](https://img.shields.io/npm/v/chai-passport-strategy.svg?label=version)](https://www.npmjs.com/package/chai-passport-strategy)
-[![Build](https://img.shields.io/travis/jaredhanson/chai-passport-strategy.svg)](https://travis-ci.org/jaredhanson/chai-passport-strategy)
-[![Quality](https://img.shields.io/codeclimate/github/jaredhanson/chai-passport-strategy.svg?label=quality)](https://codeclimate.com/github/jaredhanson/chai-passport-strategy)
-[![Coverage](https://img.shields.io/coveralls/jaredhanson/chai-passport-strategy.svg)](https://coveralls.io/r/jaredhanson/chai-passport-strategy)
-[![Dependencies](https://img.shields.io/david/jaredhanson/chai-passport-strategy.svg)](https://david-dm.org/jaredhanson/chai-passport-strategy)
+[![NPM version](https://img.shields.io/npm/v/@passport-next/chai-passport-strategy.svg)](https://www.npmjs.com/package/@passport-next/chai-passport-strategy)
+[![Build Status](https://travis-ci.org/passport-next/chai-passport-strategy.svg?branch=master)](https://travis-ci.org/passport-next/chai-passport-strategy)
+[![Coverage Status](https://coveralls.io/repos/github/passport-next/chai-passport-strategy/badge.svg?branch=master)](https://coveralls.io/github/passport-next/chai-passport-strategy?branch=master)
+[![Maintainability](https://api.codeclimate.com/v1/badges/d260f366c44991e2613c/maintainability)](https://codeclimate.com/github/passport-next/chai-passport-strategy/maintainability)
+[![Dependencies](https://david-dm.org/passport-next/chai-passport-strategy.png)](https://david-dm.org/passport-next/chai-passport-strategy)
+<!--[![SAST](https://gitlab.com/passport-next/chai-passport-strategy/badges/master/build.svg)](https://gitlab.com/passport-next/chai-passport-strategy/badges/master/build.svg)-->
 
-
-Helpers for testing [Passport](http://passportjs.org/) strategies with the
+Helpers for testing [Passport](https://github.com/passport-next) strategies with the
 [Chai](http://chaijs.com/) assertion library.
 
 ## Install
 
-    $ npm install chai-passport-strategy
+    $ npm install @passport-next/chai-passport-strategy
 
 ## Usage
 
@@ -39,7 +39,7 @@ to Passport's strategy API: `success()`, `fail()`, `redirect()`, `pass()`, and
 callback, the test helper will automatically throw an exception.
 
 The following demonstrates a [Mocha](http://mochajs.org/) test
-case, taken from [passport-http-bearer](https://github.com/jaredhanson/passport-http-bearer)'s
+case, taken from [passport-http-bearer](https://github.com/passport-next/passport-http-bearer)'s
 test suite.
 
 
@@ -82,13 +82,3 @@ describe('token strategy', function() {
   });
 });
 ```
-
-## License
-
-[The MIT License](http://opensource.org/licenses/MIT)
-
-Copyright (c) 2013-2017 Jared Hanson <[http://jaredhanson.net/](http://jaredhanson.net/)>
-
-<a target='_blank' rel='nofollow' href='https://app.codesponsor.io/link/vK9dyjRnnWsMzzJTQ57fRJpH/jaredhanson/chai-passport-strategy'>
-  <img alt='Sponsor' width='888' height='68' src='https://app.codesponsor.io/embed/vK9dyjRnnWsMzzJTQ57fRJpH/jaredhanson/chai-passport-strategy.svg' />
-</a>

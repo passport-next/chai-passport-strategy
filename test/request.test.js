@@ -10,7 +10,7 @@ describe('Request', function() {
     expect(Object.keys(req)).to.have.length(3);
     expect(req.method).to.equal('GET');
     expect(req.url).to.equal('/');
-    expect(req.headers).to.be.an.object;
+    expect(req.headers).to.be.an('object');
   });
   
 });
