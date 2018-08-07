@@ -3,7 +3,7 @@
 [![NPM version](https://img.shields.io/npm/v/@passport-next/chai-passport-strategy.svg)](https://www.npmjs.com/package/@passport-next/chai-passport-strategy)
 [![Build Status](https://travis-ci.org/passport-next/chai-passport-strategy.svg?branch=master)](https://travis-ci.org/passport-next/chai-passport-strategy)
 [![Coverage Status](https://coveralls.io/repos/github/passport-next/chai-passport-strategy/badge.svg?branch=master)](https://coveralls.io/github/passport-next/chai-passport-strategy?branch=master)
-[![Maintainability](https://api.codeclimate.com/v1/badges/d260f366c44991e2613c/maintainability)](https://codeclimate.com/github/passport-next/chai-passport-strategy/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/3372259864c17397d251/maintainability)](https://codeclimate.com/github/passport-next/chai-passport-strategy/maintainability)
 [![Dependencies](https://david-dm.org/passport-next/chai-passport-strategy.png)](https://david-dm.org/passport-next/chai-passport-strategy)
 <!--[![SAST](https://gitlab.com/passport-next/chai-passport-strategy/badges/master/build.svg)](https://gitlab.com/passport-next/chai-passport-strategy/badges/master/build.svg)-->
 
