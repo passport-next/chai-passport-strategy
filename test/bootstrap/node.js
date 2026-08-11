@@ -1,3 +1,2 @@
 var chai = require('chai');
-
-global.expect = chai.expect;
+globalThis.expect = require('chai').expect;
