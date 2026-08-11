@@ -1,16 +1,14 @@
-/* global describe, it, expect */
+/* eslint-disable no-shadow -- Bootstrap */
+import Request from '../lib/request.js';
+import {expect} from './bootstrap/node.js';
 
-var Request = require('../lib/request');
+describe('Request', function () {
+  const req = new Request();
 
-describe('Request', function() {
-  
-  var req = new Request();
-  
-  it('should be constructed with default properties', function() {
+  it('should be constructed with default properties', function () {
     expect(Object.keys(req)).to.have.length(3);
     expect(req.method).to.equal('GET');
     expect(req.url).to.equal('/');
     expect(req.headers).to.be.an('object');
   });
-  
 });

@@ -1,4 +1,4 @@
-/* eslint-disable no-shadow -- The desired name */
+export default Request;
 /**
  * Creates an instance of `Request`.
  *
@@ -8,12 +8,11 @@
  * @class
  * @access protected
  */
-class Request {
-  method = 'GET';
-  url = '/';
-  /** @type {{[key: string]: unknown}} */
-  headers = {};
+declare class Request {
+    method: string;
+    url: string;
+    /** @type {{[key: string]: unknown}} */
+    headers: {
+        [key: string]: unknown;
+    };
 }
-
-// Expose constructor.
-export default Request;

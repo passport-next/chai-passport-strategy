@@ -21,9 +21,12 @@ Helpers for testing [Passport](https://github.com/passport-next) strategies with
 Use this plugin as you would all other Chai plugins:
 
 ```javascript
-var chai = require('chai');
+import * as chaiModule from 'chai';
+import chaiPassportStrategy from '@passport-next/chai-passport-strategy';
 
-chai.use(require('chai-passport-strategy'));
+const chai = chaiModule.use(chaiPassportStrategy);
+chai.use(chaiPassportStrategy);
+
 ```
 
 #### Implement Test Cases
@@ -42,19 +45,19 @@ which implements bearer token authentication:
 
 
 ```javascript
-it('should authenticate request with token in header', function(done) {
-  chai.passport.use(new Strategy(function(token, cb) {
-      expect(token).to.equal('mF_9.B5f-4.1JqM');
-      return cb(null, { id: '248289761001' }, { scope: [ 'profile', 'email' ] });
-    }))
-    .request(function(req) {
-      req.headers['authorization'] = 'Bearer mF_9.B5f-4.1JqM';
-    })
-    .success(function(user, info) {
-      expect(user).to.deep.equal({ id: '248289761001' });
-      expect(info).to.deep.equal({ scope: [ 'profile', 'email' ] });
+it('should authenticate request with token in header', function (done) {
+  chai.passport.use(new Strategy(function (token, cb) {
+    expect(token).to.equal('mF_9.B5f-4.1JqM');
+    return cb(null, {id: '248289761001'}, {scope: ['profile', 'email']});
+  })).
+    request(function (req) {
+      req.headers.authorization = 'Bearer mF_9.B5f-4.1JqM';
+    }).
+    success(function (user, info) {
+      expect(user).to.deep.equal({id: '248289761001'});
+      expect(info).to.deep.equal({scope: ['profile', 'email']});
       done();
-    })
-    .authenticate();
+    }).
+    authenticate();
 });
 ```
