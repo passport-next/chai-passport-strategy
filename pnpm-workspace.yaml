@@ -2,4 +2,4 @@ allowBuilds:
   unrs-resolver: false
 minimumReleaseAgeExclude:
   - eslint-config-ash-nazg@42.3.1
-  - '@passport-next/passport-strategy@2.0.0'
+  - '@passport-next/passport-strategy@2.0.0 || 2.1.0'

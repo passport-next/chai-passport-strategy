@@ -31,6 +31,14 @@ describe('Test', function () {
         }).
         authenticate({scope: ['profile', 'email']});
     }); // should pass options to Strategy#authenticate
+
+    it('should accept an explicit strategy name', function (done) {
+      chai.passport.use('example', new Strategy()).
+        redirect(function () {
+          done();
+        }).
+        authenticate({scope: ['profile', 'email']});
+    });
   }); // #authenticate
 
   describe('#request', function () {
