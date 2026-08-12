@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/passport-next/chai-passport-strategy.git"
+    "url": "git+https://github.com/passport-next/chai-passport-strategy.git"
   },
   "bugs": {
     "url": "http://github.com/passport-next/chai-passport-strategy/issues"
