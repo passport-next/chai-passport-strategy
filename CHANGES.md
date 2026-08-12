@@ -1,5 +1,9 @@
 # Changes for chai-passport-strategy
 
+## 2.1.2
+
+- fix(types): export @types/node as dependency
+
 ## 2.1.1
 
 - docs: clarify README usage
