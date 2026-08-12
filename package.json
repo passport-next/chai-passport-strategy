@@ -46,6 +46,7 @@
     "node": "^22.22.2 || >=24.15.0"
   },
   "scripts": {
+    "prepublishOnly": "pnpm build && pnpm tsc",
     "lint": "eslint .",
     "tsc": "tsc",
     "build": "tsc -p tsconfig-prod.json && pnpm attw",
