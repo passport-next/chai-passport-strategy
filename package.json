@@ -54,6 +54,6 @@
     "test": "c8 mocha --require test/bootstrap/node.js test/*.test.js"
   },
   "dependencies": {
-    "@passport-next/passport-strategy": "^2.0.0"
+    "@passport-next/passport-strategy": "^2.1.0"
   }
 }
