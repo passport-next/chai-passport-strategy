@@ -11,9 +11,6 @@ importers:
       '@passport-next/passport-strategy':
         specifier: ^2.1.0
         version: 2.1.0
-      '@types/node':
-        specifier: ^26.2.0
-        version: 26.2.0
     devDependencies:
       '@arethetypeswrong/cli':
         specifier: ^0.18.5
@@ -24,6 +21,9 @@ importers:
       '@types/mocha':
         specifier: ^10.0.10
         version: 10.0.10
+      '@types/node':
+        specifier: ^26.2.0
+        version: 26.2.0
       c8:
         specifier: ^12.0.0
         version: 12.0.0

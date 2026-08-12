@@ -1,5 +1,9 @@
 # Changes for chai-passport-strategy
 
+## 2.1.3
+
+- fix(types): avoid Node type export issue
+
 ## 2.1.2
 
 - fix(types): export @types/node as dependency
