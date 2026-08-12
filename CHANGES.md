@@ -1,5 +1,9 @@
 # Changes for chai-passport-strategy
 
+## 2.1.1
+
+- docs: clarify README usage
+
 ## 2.1.0
 
 - feat: accept explicit strategy name
