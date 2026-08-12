@@ -18,15 +18,18 @@ Helpers for testing [Passport](https://github.com/passport-next) strategies with
 
 #### Use Plugin
 
-Use this plugin as you would all other Chai plugins:
+Use this plugin as you would all other ESM Chai plugins:
 
 ```javascript
+// Bootstrap file
+
 import * as chaiModule from 'chai';
 import chaiPassportStrategy from '@passport-next/chai-passport-strategy';
 
-const chai = chaiModule.use(chaiPassportStrategy);
-chai.use(chaiPassportStrategy);
-
+const chai = /** @type {ReturnType<typeof chaiPassportStrategy>} */ (
+  chaiModule.use(chaiPassportStrategy)
+);
+export const {expect} = chai;
 ```
 
 #### Implement Test Cases
