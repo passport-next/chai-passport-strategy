@@ -12,7 +12,10 @@ export type PassCallback = (this: Request) => void;
 export type ErrorCallback = (this: Request, err: Error) => void;
 export type FinishCallback = (this: Response) => void;
 /**
- * @import {Strategy, EnhancedStrategy} from '@passport-next/passport-strategy';
+ * @import {
+ *   EnhancedStrategy,
+ *   StrategyLike
+ * } from '@passport-next/passport-strategy';
  * @import {AuthInfo, User} from '@passport-next/passport-types';
  */
 /**
@@ -72,9 +75,9 @@ export type FinishCallback = (this: Response) => void;
 declare class Test {
     /**
      *
-     * @param {Strategy} strategy
+    * @param {StrategyLike} strategy
      */
-    constructor(strategy: Strategy);
+    constructor(strategy: StrategyLike);
     /**
      * Register a callback to be invoked when request is prepared.
      *
@@ -153,4 +156,4 @@ import Request from './request.js';
 import Response from './response.js';
 import type { User } from '@passport-next/passport-types';
 import type { AuthInfo } from '@passport-next/passport-types';
-import type { Strategy } from '@passport-next/passport-strategy';
+import type { StrategyLike } from '@passport-next/passport-strategy';

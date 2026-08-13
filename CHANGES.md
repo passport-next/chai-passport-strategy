@@ -1,5 +1,9 @@
 # Changes for chai-passport-strategy
 
+## 2.3.0
+
+- chore: use updated types
+
 ## 2.2.0
 
 - feat: add `setHeader`

@@ -1,13 +1,15 @@
 export default chaiPassportStrategy;
-export type PassportUse = (((strategy: Strategy) => Test) & ((name: string, strategy: Strategy) => Test));
-export type StrategyLike = Strategy & Partial<Omit<EnhancedStrategy, keyof Strategy>>;
+export type PassportUse = (((strategy: PassportStrategyLike) => Test) & ((name: string, strategy: PassportStrategyLike) => Test));
+export type StrategyLike = PassportStrategyLike;
 /**
- * @import {Strategy, EnhancedStrategy} from '@passport-next/passport-strategy';
+ * @import {
+ *   StrategyLike as PassportStrategyLike
+ * } from '@passport-next/passport-strategy'
  */
 /**
  * @typedef {(
- *   ((strategy: Strategy) => Test) &
- *   ((name: string, strategy: Strategy) => Test)
+ *   ((strategy: PassportStrategyLike) => Test) &
+ *   ((name: string, strategy: PassportStrategyLike) => Test)
  * )} PassportUse
  */
 /**
@@ -28,6 +30,5 @@ declare function chaiPassportStrategy(chai: Chai.ChaiStatic & {
         use: PassportUse;
     };
 };
-import type { Strategy } from '@passport-next/passport-strategy';
+import type { StrategyLike as PassportStrategyLike } from '@passport-next/passport-strategy';
 import Test from './test.js';
-import type { EnhancedStrategy } from '@passport-next/passport-strategy';
