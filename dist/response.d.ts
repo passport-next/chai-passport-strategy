@@ -5,6 +5,12 @@ export type ResponseEmitter = {
 };
 declare const Response_base: new () => ResponseEmitter;
 /**
+ * @import {
+ *   ConnectResponse,
+ *   ResponseHeaderValue
+ * } from '@passport-next/http-types'
+ */
+/**
  * @typedef {object} ResponseEmitter
  * @property {(
  *   eventName: string,
@@ -20,13 +26,23 @@ declare const Response_base: new () => ResponseEmitter;
  *
  * @class
  * @access protected
+ * @implements {ConnectResponse}
  */
-declare class Response extends Response_base {
+declare class Response extends Response_base implements ConnectResponse {
     statusCode: number;
-    _headers: {};
+    /** @type {Record<string, ResponseHeaderValue>} */
+    _headers: Record<string, ResponseHeaderValue>;
+    /**
+     * @param {string} name
+     * @param {ResponseHeaderValue} value
+     * @returns {void}
+     */
+    setHeader(name: string, value: ResponseHeaderValue): void;
     /**
      *
      * @returns {void}
      */
     end(): void;
 }
+import type { ConnectResponse } from '@passport-next/http-types';
+import type { ResponseHeaderValue } from '@passport-next/http-types';

@@ -2,7 +2,7 @@ export default Test;
 export type SyncRequestCallback = (req: Request, res: Response) => void;
 export type AsyncRequestCallback = (req: Request, res: Response, ready: () => void) => void;
 export type RequestCallback = SyncRequestCallback | AsyncRequestCallback;
-export type SuccessCallback = (this: Request, user: object, info?: object) => void;
+export type SuccessCallback = (this: Request, user: User, info?: AuthInfo) => void;
 export type FailCallback = (this: Request, challenge: string | {
     type?: string;
     message: string;
@@ -13,6 +13,7 @@ export type ErrorCallback = (this: Request, err: Error) => void;
 export type FinishCallback = (this: Response) => void;
 /**
  * @import {Strategy, EnhancedStrategy} from '@passport-next/passport-strategy';
+ * @import {AuthInfo, User} from '@passport-next/passport-types';
  */
 /**
  * @typedef {(req: Request, res: Response) => void} SyncRequestCallback
@@ -30,8 +31,8 @@ export type FinishCallback = (this: Response) => void;
 /**
  * @typedef {(
  *   this: Request,
- *   user: object,
- *   info?: object
+ *   user: User,
+ *   info?: AuthInfo
  * ) => void} SuccessCallback
  */
 /**
@@ -150,4 +151,6 @@ declare class Test {
 }
 import Request from './request.js';
 import Response from './response.js';
+import type { User } from '@passport-next/passport-types';
+import type { AuthInfo } from '@passport-next/passport-types';
 import type { Strategy } from '@passport-next/passport-strategy';

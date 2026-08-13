@@ -1,5 +1,10 @@
 # Changes for chai-passport-strategy
 
+## 2.2.0
+
+- feat: add `setHeader`
+- chore: use http-types and passport-types
+
 ## 2.1.3
 
 - fix(types): avoid Node type export issue

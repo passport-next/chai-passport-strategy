@@ -1,4 +1,8 @@
 export default Request;
+export type StrategyRequest = ConnectRequest & PassportRequest;
+/** @import {ConnectRequest, HeaderValue} from '@passport-next/http-types' */
+/** @import {Request as PassportRequest} from '@passport-next/passport-types' */
+/** @typedef {ConnectRequest & PassportRequest} StrategyRequest */
 /**
  * Creates an instance of `Request`.
  *
@@ -7,12 +11,14 @@ export default Request;
  *
  * @class
  * @access protected
+ * @implements {StrategyRequest}
  */
-declare class Request {
+declare class Request implements StrategyRequest {
     method: string;
     url: string;
-    /** @type {{[key: string]: unknown}} */
-    headers: {
-        [key: string]: unknown;
-    };
+    /** @type {Record<string, HeaderValue>} */
+    headers: Record<string, HeaderValue>;
 }
+import type { ConnectRequest } from '@passport-next/http-types';
+import type { Request as PassportRequest } from '@passport-next/passport-types';
+import type { HeaderValue } from '@passport-next/http-types';
