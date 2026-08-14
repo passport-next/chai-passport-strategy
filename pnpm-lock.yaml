@@ -12,8 +12,8 @@ importers:
         specifier: ^0.2.0
         version: 0.2.0
       '@passport-next/passport-strategy':
-        specifier: ^2.2.0
-        version: 2.2.0
+        specifier: ^2.3.0
+        version: 2.3.0
       '@passport-next/passport-types':
         specifier: ^0.3.1
         version: 0.3.1(@passport-next/http-types@0.2.0)
@@ -299,8 +299,8 @@ packages:
   '@passport-next/http-types@0.2.0':
     resolution: {integrity: sha512-zmCE7zOIdoa3USI/Qid3w0tvqA3t4AiOw2s79BPWpgKYWSymGH3VwzIr7MvCznmSIuVzAXZclRR3A8bPY17fYQ==}
 
-  '@passport-next/passport-strategy@2.2.0':
-    resolution: {integrity: sha512-S3h3UXLf/P1EVc1IGfuw5F0NNNEU3N7WK4faHFX0eJBtV8lRNLgooHVYuHc8uAvm/A6FnBmbzmB5TDmYYFAsxA==}
+  '@passport-next/passport-strategy@2.3.0':
+    resolution: {integrity: sha512-kcnuuv3FPzTY/thO8d7K+QkOb4yVpM6fyLyOgm3l86L5sMGFxj4xvRbO3QvPGAqEgyaxTtnq5W0lYtgJYkfvtQ==}
     engines: {node: ^22.22.2 || >=24.15.0}
 
   '@passport-next/passport-types@0.3.1':
@@ -2543,7 +2543,7 @@ snapshots:
 
   '@passport-next/http-types@0.2.0': {}
 
-  '@passport-next/passport-strategy@2.2.0':
+  '@passport-next/passport-strategy@2.3.0':
     dependencies:
       '@passport-next/http-types': 0.2.0
       '@passport-next/passport-types': 0.3.1(@passport-next/http-types@0.2.0)

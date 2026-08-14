@@ -1,5 +1,12 @@
 # Changes for chai-passport-strategy
 
+## 3.0.0
+BREAKING CHANGE:
+  - Types reflect new `passport-strategy`
+
+- feat: throw if fail occurs and `fail()` is not called
+- feat: adjusts types
+
 ## 2.3.0
 
 - chore: use updated types

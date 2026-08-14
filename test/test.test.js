@@ -154,6 +154,45 @@ describe('Test', function () {
         authenticate();
     }); // should invoke callback
 
+    it('should invoke callback without arguments', function (done) {
+      /**
+       *
+       */
+      class ArgumentlessStrategy extends EnhancedStrategy {
+        /** @returns {void} */
+        authenticate (/* req */) {
+          this.fail();
+        }
+      }
+
+      chai.passport.use(new ArgumentlessStrategy()).
+        fail(function (challenge, status) {
+          expect(challenge).to.be.undefined;
+          expect(status).to.be.undefined;
+          done();
+        }).
+        authenticate();
+    });
+
+    it('should invoke callback with status only', function (done) {
+      /**
+       *
+       */
+      class StatusStrategy extends EnhancedStrategy {
+        /** @returns {void} */
+        authenticate (/* req */) {
+          this.fail(401);
+        }
+      }
+
+      chai.passport.use(new StatusStrategy()).
+        fail(function (status) {
+          expect(status).to.equal(401);
+          done();
+        }).
+        authenticate();
+    });
+
     it('should throw when callback is not registered', function () {
       expect(function () {
         chai.passport.use(new Strategy()).
@@ -186,6 +225,26 @@ describe('Test', function () {
         }).
         authenticate();
     }); // should invoke callback
+
+    it('should invoke callback without status', function (done) {
+      /**
+       *
+       */
+      class StatuslessStrategy extends EnhancedStrategy {
+        /** @returns {void} */
+        authenticate (/* req */) {
+          this.redirect('/authorize');
+        }
+      }
+
+      chai.passport.use(new StatuslessStrategy()).
+        redirect(function (url, status) {
+          expect(url).to.equal('/authorize');
+          expect(status).to.be.undefined;
+          done();
+        }).
+        authenticate();
+    });
 
     it('should throw when callback is not registered', function () {
       expect(function () {

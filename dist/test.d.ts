@@ -2,21 +2,18 @@ export default Test;
 export type SyncRequestCallback = (req: Request, res: Response) => void;
 export type AsyncRequestCallback = (req: Request, res: Response, ready: () => void) => void;
 export type RequestCallback = SyncRequestCallback | AsyncRequestCallback;
-export type SuccessCallback = (this: Request, user: User, info?: AuthInfo) => void;
-export type FailCallback = (this: Request, challenge: string | {
-    type?: string;
-    message: string;
-}, status: number) => void;
-export type RedirectCallback = (this: Request, url: string, status: number) => void;
-export type PassCallback = (this: Request) => void;
-export type ErrorCallback = (this: Request, err: Error) => void;
+export type SuccessCallback = (this: Request, ...args: Parameters<EnhancedStrategy["success"]>) => void;
+export type FailCallback = (this: Request, challenge?: string | AuthInfo | number, status?: number) => void;
+export type RedirectCallback = (this: Request, ...args: Parameters<EnhancedStrategy["redirect"]>) => void;
+export type PassCallback = (this: Request, ...args: Parameters<EnhancedStrategy["pass"]>) => void;
+export type ErrorCallback = (this: Request, ...args: Parameters<EnhancedStrategy["error"]>) => void;
 export type FinishCallback = (this: Response) => void;
 /**
  * @import {
  *   EnhancedStrategy,
  *   StrategyLike
  * } from '@passport-next/passport-strategy';
- * @import {AuthInfo, User} from '@passport-next/passport-types';
+ * @import {AuthInfo} from '@passport-next/passport-types';
  */
 /**
  * @typedef {(req: Request, res: Response) => void} SyncRequestCallback
@@ -34,31 +31,32 @@ export type FinishCallback = (this: Response) => void;
 /**
  * @typedef {(
  *   this: Request,
- *   user: User,
- *   info?: AuthInfo
+ *   ...args: Parameters<EnhancedStrategy['success']>
  * ) => void} SuccessCallback
  */
 /**
  * @typedef {(
  *   this: Request,
- *   challenge: string|{type?: string, message: string},
- *   status: number
+ *   challenge?: string | AuthInfo | number,
+ *   status?: number
  * ) => void} FailCallback
  */
 /**
  * @typedef {(
  *   this: Request,
- *   url: string,
- *   status: number,
+ *   ...args: Parameters<EnhancedStrategy['redirect']>
  * ) => void} RedirectCallback
- */
-/**
- * @typedef {(this: Request) => void} PassCallback
  */
 /**
  * @typedef {(
  *   this: Request,
- *   err: Error
+ *   ...args: Parameters<EnhancedStrategy['pass']>
+ * ) => void} PassCallback
+ */
+/**
+ * @typedef {(
+ *   this: Request,
+ *   ...args: Parameters<EnhancedStrategy['error']>
  * ) => void} ErrorCallback
  */
 /**
@@ -154,6 +152,6 @@ declare class Test {
 }
 import Request from './request.js';
 import Response from './response.js';
-import type { User } from '@passport-next/passport-types';
+import type { EnhancedStrategy } from '@passport-next/passport-strategy';
 import type { AuthInfo } from '@passport-next/passport-types';
 import type { StrategyLike } from '@passport-next/passport-strategy';
