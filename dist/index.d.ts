@@ -1,6 +1,8 @@
 export default chaiPassportStrategy;
 export type PassportUse = (((strategy: PassportStrategyLike) => Test) & ((name: string, strategy: PassportStrategyLike) => Test));
 export type StrategyLike = PassportStrategyLike;
+export type RequestExtensions = import("../request-extensions.js").RequestExtensions;
+export type Request = import("./request.js").default & RequestExtensions;
 /**
  * @import {
  *   StrategyLike as PassportStrategyLike

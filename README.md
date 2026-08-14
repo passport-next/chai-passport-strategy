@@ -1,11 +1,7 @@
-# chai-passport-strategy
+# @passport-next/chai-passport-strategy
 
 [![NPM version](https://img.shields.io/npm/v/@passport-next/chai-passport-strategy.svg)](https://www.npmjs.com/package/@passport-next/chai-passport-strategy)
-[![Build Status](https://travis-ci.org/passport-next/chai-passport-strategy.svg?branch=master)](https://travis-ci.org/passport-next/chai-passport-strategy)
 [![Coverage Status](https://coveralls.io/repos/github/passport-next/chai-passport-strategy/badge.svg?branch=master)](https://coveralls.io/github/passport-next/chai-passport-strategy?branch=master)
-[![Maintainability](https://api.codeclimate.com/v1/badges/3372259864c17397d251/maintainability)](https://codeclimate.com/github/passport-next/chai-passport-strategy/maintainability)
-[![Dependencies](https://david-dm.org/passport-next/chai-passport-strategy.png)](https://david-dm.org/passport-next/chai-passport-strategy)
-<!--[![SAST](https://gitlab.com/passport-next/chai-passport-strategy/badges/master/build.svg)](https://gitlab.com/passport-next/chai-passport-strategy/badges/master/build.svg)-->
 
 Helpers for testing [Passport](https://github.com/passport-next) strategies with the
 [Chai](https://www.chaijs.com/) assertion library.
@@ -16,7 +12,7 @@ Helpers for testing [Passport](https://github.com/passport-next) strategies with
 
 ## Usage
 
-#### Use Plugin
+### Use Plugin
 
 Use this plugin as you would all other ESM Chai plugins:
 
@@ -32,7 +28,7 @@ const chai = /** @type {ReturnType<typeof chaiPassportStrategy>} */ (
 export const {expect} = chai;
 ```
 
-#### Implement Test Cases
+### Implement Test Cases
 
 Once used, the `chai.passport.use` helper function will be available to set up
 a test case which places a Passport strategy under test.
@@ -64,3 +60,32 @@ it('should authenticate request with token in header', function (done) {
     authenticate();
 });
 ```
+
+### TypeScript request extensions
+
+The package exports `Request` and `RequestExtensions` types. To describe fields
+that a strategy test adds to its mock request, augment the type-only
+`@passport-next/chai-passport-strategy/request-extensions` module in a `.d.ts`
+file included by your TypeScript configuration:
+
+```ts
+import '@passport-next/chai-passport-strategy/request-extensions';
+
+declare module '@passport-next/chai-passport-strategy/request-extensions' {
+  interface RequestExtensions {
+    session?: Record<string, unknown>;
+    tenantId?: string;
+  }
+}
+```
+
+The added fields are available on the request passed to `request()` and on the
+`this` value of strategy action callbacks such as `success()` and `fail()`. The
+composed request type can also be imported directly:
+
+```ts
+import type {Request} from '@passport-next/chai-passport-strategy';
+```
+
+`RequestExtensions` is empty by default and affects types only; the test remains
+responsible for initializing any extended fields it uses.

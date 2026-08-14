@@ -68,8 +68,10 @@ describe('Test', function () {
           expect(res.statusCode).to.equal(200);
 
           req.headers.authorization = 'Bearer mF_9.B5f-4.1JqM';
+          req.marker = 'prepared';
         }).
         success(function () {
+          expect(this.marker).to.equal('prepared');
           done();
         }).
         authenticate();

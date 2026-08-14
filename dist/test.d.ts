@@ -1,12 +1,13 @@
 export default Test;
-export type SyncRequestCallback = (req: Request, res: Response) => void;
-export type AsyncRequestCallback = (req: Request, res: Response, ready: () => void) => void;
+export type StrategyTestRequest = Request & import("../request-extensions.js").RequestExtensions;
+export type SyncRequestCallback = (req: StrategyTestRequest, res: Response) => void;
+export type AsyncRequestCallback = (req: StrategyTestRequest, res: Response, ready: () => void) => void;
 export type RequestCallback = SyncRequestCallback | AsyncRequestCallback;
-export type SuccessCallback = (this: Request, ...args: Parameters<EnhancedStrategy["success"]>) => void;
-export type FailCallback = (this: Request, challenge?: string | AuthInfo | number, status?: number) => void;
-export type RedirectCallback = (this: Request, ...args: Parameters<EnhancedStrategy["redirect"]>) => void;
-export type PassCallback = (this: Request, ...args: Parameters<EnhancedStrategy["pass"]>) => void;
-export type ErrorCallback = (this: Request, ...args: Parameters<EnhancedStrategy["error"]>) => void;
+export type SuccessCallback = (this: StrategyTestRequest, ...args: Parameters<EnhancedStrategy["success"]>) => void;
+export type FailCallback = (this: StrategyTestRequest, challenge?: string | AuthInfo | number, status?: number) => void;
+export type RedirectCallback = (this: StrategyTestRequest, ...args: Parameters<EnhancedStrategy["redirect"]>) => void;
+export type PassCallback = (this: StrategyTestRequest, ...args: Parameters<EnhancedStrategy["pass"]>) => void;
+export type ErrorCallback = (this: StrategyTestRequest, ...args: Parameters<EnhancedStrategy["error"]>) => void;
 export type FinishCallback = (this: Response) => void;
 /**
  * @import {
@@ -16,11 +17,18 @@ export type FinishCallback = (this: Response) => void;
  * @import {AuthInfo} from '@passport-next/passport-types';
  */
 /**
- * @typedef {(req: Request, res: Response) => void} SyncRequestCallback
+ * @typedef {Request &
+ *   import('../request-extensions.js').RequestExtensions} StrategyTestRequest
  */
 /**
  * @typedef {(
- *   req: Request,
+ *   req: StrategyTestRequest,
+ *   res: Response
+ * ) => void} SyncRequestCallback
+ */
+/**
+ * @typedef {(
+ *   req: StrategyTestRequest,
  *   res: Response,
  *   ready: () => void
  * ) => void} AsyncRequestCallback
@@ -30,32 +38,32 @@ export type FinishCallback = (this: Response) => void;
  */
 /**
  * @typedef {(
- *   this: Request,
+ *   this: StrategyTestRequest,
  *   ...args: Parameters<EnhancedStrategy['success']>
  * ) => void} SuccessCallback
  */
 /**
  * @typedef {(
- *   this: Request,
+ *   this: StrategyTestRequest,
  *   challenge?: string | AuthInfo | number,
  *   status?: number
  * ) => void} FailCallback
  */
 /**
  * @typedef {(
- *   this: Request,
+ *   this: StrategyTestRequest,
  *   ...args: Parameters<EnhancedStrategy['redirect']>
  * ) => void} RedirectCallback
  */
 /**
  * @typedef {(
- *   this: Request,
+ *   this: StrategyTestRequest,
  *   ...args: Parameters<EnhancedStrategy['pass']>
  * ) => void} PassCallback
  */
 /**
  * @typedef {(
- *   this: Request,
+ *   this: StrategyTestRequest,
  *   ...args: Parameters<EnhancedStrategy['error']>
  * ) => void} ErrorCallback
  */
