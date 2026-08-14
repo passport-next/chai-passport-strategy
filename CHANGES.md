@@ -1,5 +1,9 @@
 # Changes for chai-passport-strategy
 
+## 3.2.0
+
+- chore: update passport-strategy
+
 ## 3.1.0
 
 - feat: request() callbacks and action callback this values now receive the extended request type

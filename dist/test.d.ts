@@ -81,7 +81,7 @@ export type FinishCallback = (this: Response) => void;
 declare class Test {
     /**
      *
-    * @param {StrategyLike} strategy
+     * @param {StrategyLike} strategy
      */
     constructor(strategy: StrategyLike);
     /**
